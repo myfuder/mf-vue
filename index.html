@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mf-vue</title>
+</head>
+<body>
+<div id="mfVue">
+    <button mf-on:click="add">add</button>
+    <div>
+        <textarea mf-model="name"></textarea>
+        <div mf-text="name"></div>
+    </div>
+    <button mf-on:click="show">显示/隐藏</button>
+    <div mf-if="isShow">
+        <input type="text" mf-model="webSite">
+        <div mf-text="webSite"></div>
+    </div>
+</div>
+<script src="mf-vue.js">
+</script>
+<script>
+    let vm = new MFVue({
+        el: '#mfVue',
+        data: {
+            name: 'myfuder',
+            webSite: 'https://github.com/myfuder/mf-vue',
+            isShow: true
+        },
+        methods: {
+            add() {
+                this.name += 'myfuder';
+            },
+            show() {
+                if (this.isShow) {
+                    this.isShow = false;
+                } else {
+                    this.isShow = true;
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

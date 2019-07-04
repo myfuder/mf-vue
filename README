@@ -1,0 +1,5 @@
+原理：通过Object.defineProperty劫持数据变化，向订阅者发布变动内容，从而更新DOM
+
+分析：首先需要方法Observer监听所有属性的变化和解析DOM指令的方法Compile并在解析指令后对其添加订阅。
+      订阅者Watcher接收vue对象和需要更新的DOM对象及其属性和值进行初始化，update方法负责更新DOM。
+      当观察者Observer发现指令对应的值在发生变化时，发送对应的DOM对象通知订阅者更新该DOM。
